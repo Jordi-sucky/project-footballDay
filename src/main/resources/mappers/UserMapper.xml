@@ -28,6 +28,18 @@
  		)
  		
  	</insert>
+ 	
+ 	<select id="signupDuplicatedDAO" resultType="int">
+ 	
+ 		SELECT
+ 			COUNT(*)
+ 		FROM
+ 			`user`
+ 		WHERE
+ 			`loginId` = #{loginId}
+ 	
+ 	
+ 	</select>
  
  
  

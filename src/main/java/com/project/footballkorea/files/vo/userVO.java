@@ -17,4 +17,17 @@ public class userVO {
 		String encPassword = EncryptUtils.md5(password);
 		return userdao.insertUser(loginId, encPassword, name, nickname, phoneNumber);
 	}
+	
+	public boolean signupDuplicatedVO(String loginId) {
+		
+		int count = userdao.signupDuplicatedDAO(loginId);
+		
+		if(count == 1) {
+			return true;
+		} else {
+			return false;
+		}
+		
+	}
+	
 }

@@ -37,4 +37,20 @@ public class userRestController {
 		return result;
 	}
 	
+	@PostMapping("/user/signupDuplicated")
+	public Map<String, String> signupDuplicated(@RequestParam("loginId")String loginId) {
+		
+		Map<String, String> result = new HashMap<>();
+		
+		boolean availableId = uservo.signupDuplicatedVO(loginId);
+		
+		if(availableId == true) {
+			result.put("result", "fail");
+		} else {
+			result.put("result", "success");
+		}
+		
+		
+		return result;
+	}
 }

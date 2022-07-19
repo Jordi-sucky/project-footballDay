@@ -54,6 +54,10 @@
 	width:300px;
 }
 
+#loginIdInput {
+	width:200px;
+}
+
 .postTable {
     width: 100%;
     border-bottom: 1px solid #29367c;

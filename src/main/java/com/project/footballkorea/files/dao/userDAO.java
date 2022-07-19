@@ -13,4 +13,6 @@ public interface userDAO {
 			, @Param("nickname") String nickname
 			, @Param("phoneNumber") String phoneNumber
 			);
+	
+	public int signupDuplicatedDAO(@Param("loginId") String loginId);
 }

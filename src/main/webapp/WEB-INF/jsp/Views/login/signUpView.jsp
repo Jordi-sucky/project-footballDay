@@ -25,7 +25,10 @@
 		
 		<div class="container mt-3 d-flex justify-content-center">
 			<div id="registBox" class="mt-3">
-				<input type="text" id="loginIdInput" class="form-control mt-3" placeholder="아이디">
+				<div class="d-flex justify-content-between mt-3">
+					<input type="text" id="loginIdInput" class="form-control" placeholder="아이디">
+					<button type="button" id="signupDuplicatedBtn" class="bg-warning btn" style="font-size:small">중복확인</button>
+				</div>
 				<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
 				<input type="password" id="confirmPasswordInput" class="form-control mt-3" placeholder="비밀번호 확인">
 				<input type="text" id="nameInput" class="form-control mt-3" placeholder="이름">
@@ -44,6 +47,33 @@
 	<script>
 		
 		$(document).ready(function(){
+			
+			$("#signupDuplicatedBtn").on("click",function(){
+				
+				let loginId = $("#loginIdInput").val();
+				
+				if(loginId == ""){
+					alert("아이디를 입력해 주세요.");
+					return;
+				}
+				
+				$.ajax({
+					//tudse
+					type:"post",
+					url:"/user/signupDuplicated",
+					data:{"loginId":loginId},
+					success:function(data){
+						if(data.result == "success"){
+							alert("사용 가능한 아이디입니다.");
+						} else {
+							alert("이미 사용중인 아이디입니다.");
+						}						
+					},
+					error:function(){
+						alert("에러 발생");
+					}
+				});
+			});
 			
 			$("#signUpBtn").on("click",function(){
 				let loginId = $("#loginIdInput").val();
