@@ -1,0 +1,123 @@
+@charset "UTF-8";
+
+#logo {
+	font-size:50px;
+	font-family: cursive;
+}
+
+#logoBall {
+	height:75px;
+	width:75px;
+}
+
+#flag {
+	height:100px;
+}
+
+#search-input {
+	width:320px;
+}
+
+.form-outline {
+	outline-style:solid;
+	outline: 5px solid #3c94d6;
+}
+
+#search-button {
+	background-color:#3c94d6;
+	outline: 5px solid #3c94d6;
+}
+
+#menuBar {
+	height:60px;
+	background-color:#3c94d6;
+}
+
+#footerText {
+	opacity:0.5;
+}
+
+.btn {
+	background-color:#3c94d6;
+	
+}
+
+.signBtn {
+	width:90px;
+}
+
+#loginBox {
+	width:300px;
+}
+
+#registBox {
+	width:300px;
+}
+
+.postTable {
+    width: 100%;
+    border-bottom: 1px solid #29367c;
+    font-family: -apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Malgun Gothic","맑은 고딕",arial,굴림,Gulim,sans-serif;
+}
+
+.sectionBox {
+	border: #3c94d6 3px solid;
+	box-sizing: border-box;
+
+}
+
+.postTableBox {
+	border: black 1px solid;
+	box-sizing: border-box;
+
+
+}
+
+.postUpTitle {
+	width:630px;
+	height: 40px;
+}
+
+textarea {
+	padding: 10px 0 0 10px;
+}
+
+.img-icon {
+	font-size:25px;
+
+}
+
+.tableLine {
+	height:50px;
+}
+
+.postViewBox {
+	border: black 1px solid;
+	box-sizing: border-box;
+	background-color:white;
+}
+
+#leagueId {
+	height:30px;
+	font-size:12px;
+}
+
+table {
+	border: 1px solid #444444;
+}
+
+#leagueTable {
+	height:100px;
+}
+
+.previewBox {
+	height:300px;
+	border: 1px solid black;
+}
+
+.newsBox {
+	height:180px;
+}
+#newsSection {
+	height:700px;
+}
