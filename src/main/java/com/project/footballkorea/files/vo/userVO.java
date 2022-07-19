@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.footballkorea.common.EncryptUtils;
 import com.project.footballkorea.files.dao.userDAO;
+import com.project.footballkorea.files.model.User;
 
 @Service
 public class userVO {
@@ -28,6 +29,13 @@ public class userVO {
 			return false;
 		}
 		
+	}
+	
+	public User getUserVO(String loginId, String password) {
+		
+		String encPassword = EncryptUtils.md5(password);
+		
+		return userdao.getUserDAO(loginId, encPassword);
 	}
 	
 }

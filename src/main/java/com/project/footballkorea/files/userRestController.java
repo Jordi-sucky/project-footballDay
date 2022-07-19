@@ -3,11 +3,15 @@ package com.project.footballkorea.files;
 import java.util.HashMap;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.footballkorea.files.model.User;
 import com.project.footballkorea.files.vo.userVO;
 
 @RestController
@@ -52,5 +56,33 @@ public class userRestController {
 		
 		
 		return result;
+	}
+	
+	@PostMapping("/user/signin")
+	public Map<String, String> signin(
+			@RequestParam("loginId") String loginId
+			, @RequestParam("password") String password
+			, HttpServletRequest request
+			){
+		
+		User user = uservo.getUserVO(loginId, password);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(user != null) {
+			result.put("result", "success");
+			
+			HttpSession session = request.getSession();
+			
+			session.setAttribute("userId", user.getId());
+			session.setAttribute("userLoginId", user.getLoginId());
+			session.setAttribute("userName", user.getName());
+			session.setAttribute("userNickname", user.getNickname());
+			
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;	
 	}
 }

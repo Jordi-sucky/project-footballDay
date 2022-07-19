@@ -3,6 +3,8 @@ package com.project.footballkorea.files.dao;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
+import com.project.footballkorea.files.model.User;
+
 @Repository
 public interface userDAO {
 	
@@ -15,4 +17,6 @@ public interface userDAO {
 			);
 	
 	public int signupDuplicatedDAO(@Param("loginId") String loginId);
+	
+	public User getUserDAO(@Param("loginId") String loginId, @Param("password") String password);
 }

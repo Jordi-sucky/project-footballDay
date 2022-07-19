@@ -41,7 +41,24 @@
  	
  	</select>
  
- 
+ 	<select id="getUserDAO" resultType="com.project.footballkorea.files.model.User">
+ 	
+ 		SELECT
+ 			`id`
+ 			, `loginId`
+ 			, `password`
+ 			, `name`
+ 			, `nickname`
+ 			, `phoneNumber`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`user`
+ 		WHERE
+ 			`loginId` = #{loginId} AND `password` = #{password}
+ 	
+
+ 	</select>
  
  
  

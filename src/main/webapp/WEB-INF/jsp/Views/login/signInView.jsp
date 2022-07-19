@@ -27,7 +27,7 @@
 		<div class="container mt-3 d-flex justify-content-center">
 		
 			<div id="loginBox" class="mt-3">
-				<input type="text" id="loginIdInput" class="form-control mt-3" placeholder="아이디">
+				<input type="text" id="loginIdInput" class="form-control mt-3" placeholder="아이디" style="width:300px;">
 				
 				<input type="password" id="passwordInput" class="form-control mt-3" placeholder="비밀번호">
 				
@@ -41,6 +41,47 @@
 	
 	</div>
 
+	<script>
 	
+		$(document).ready(function(){
+			
+			$("#loginBtn").on("click",function(){
+				
+				let loginId = $("#loginIdInput").val();
+				let password = $("#passwordInput").val();
+				
+				if(loginId == ""){
+					
+					alert("아이디를 입력해주세요.");
+					return;
+				}
+				if(password == ""){
+					
+					alert("비밀번호를 입력해주세요.");
+					return;
+				}
+				
+				$.ajax({
+					//tudse
+					type:"post",
+					url:"/user/signin",
+					data:{"loginId":loginId, "password":password},
+					success:function(data){
+						if(data.result == "success"){
+							
+							location.href = "/footballkorea";
+						} else {
+							alert("로그인에 실패하였습니다. \n다시 시도해 주십시오.");
+						}
+					},
+					error:function(){
+						alert("로그인 에러");
+					}
+				});
+			});
+			
+		});
+	
+	</script>
 </body>
 </html>
