@@ -18,17 +18,17 @@
 <title>★★해외축구 팬들의 집합소 풋볼데이★★</title>
 </head>
 <body>
-	<div id="wrap" >
+
+	<div id="wrap">
 		<c:import url="/WEB-INF/jsp/include/header.jsp" />
 		
 		<c:import url="/WEB-INF/jsp/include/menu.jsp" />
 		
-		<c:import url="/WEB-INF/jsp/include/section.jsp" />
+		<c:import url="/WEB-INF/jsp/include/notice/noticeSection.jsp" />
 		
 		<c:import url="/WEB-INF/jsp/include/footer.jsp" />
 	
-	</div>
 	
-
+	</div>
 </body>
 </html>
