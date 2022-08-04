@@ -50,6 +50,10 @@
 	width:300px;
 }
 
+.loginBox {
+	width:240px;
+}
+
 #registBox {
 	width:300px;
 }
@@ -67,6 +71,7 @@
 .sectionBox {
 	border: #3c94d6 3px solid;
 	box-sizing: border-box;
+	height:800px;
 
 }
 
@@ -130,3 +135,18 @@ table {
 	background-color: #d9e5fc;
 	
 }
+
+#recentNews {
+	width:800px;
+	border-right:1px solid #d9e5fc;
+}
+
+#bestNews {
+	width:310px;
+}
+
+.newsPicture {
+	width:260px;
+	height:120px;
+}
+

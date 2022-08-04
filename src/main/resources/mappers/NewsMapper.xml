@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+ 
+ <mapper namespace="com.project.footballkorea.files.dao.newsDAO">
+ 	
+ 	<insert id="testDAO" parameterType="map">
+ 	
+ 		INSERT INTO `news`
+ 		(
+ 			`title`
+ 			, `content`
+ 			, `imagePath`
+ 			, `league`
+ 			, `company`
+ 			, `reporter`
+ 			, `createdAt`
+ 			, `updatedAt`
+
+ 		)
+ 		VALUE
+ 		(
+ 			#{title}
+ 			, #{content}
+ 			, #{imagePath}
+ 			, #{league}
+ 			, #{company}
+ 			, #{reporter}
+ 			, now()
+ 			, now()
+
+ 		)
+ 	
+ 	
+ 	
+ 	</insert>
+ 	
+ 	<select id="newsInfoDAO" resultType="com.project.footballkorea.files.model.News">
+ 	
+ 		SELECT
+ 			`id`
+ 			, `title`
+ 			, `content`
+ 			, `imagePath`
+ 			, `league`
+ 			, `company`
+ 			, `reporter`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM
+ 			`news`
+ 		ORDER BY `id` DESC
+ 	
+ 	
+ 	
+ 	</select>
+ 
+ 
+ </mapper>

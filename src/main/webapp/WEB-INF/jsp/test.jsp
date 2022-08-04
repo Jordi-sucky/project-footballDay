@@ -19,37 +19,69 @@
 </head>
 <body>
 	<div id="wrap" class="container">
-			<table class="w-100 mt-1" >
-				<thead>
-					<tr class="text-center table-info">
-						<th>순위</th>
-						<th>팀명</th>
-						<th>승점</th>
-						<th>득실</th>
-					</tr>
-				
-				</thead>
-				
-				<tbody>
-					<%--반복 시작 --%>
-					<c:forEach var="rankTable" items="${rank }" varStatus="status">
-						<tr class="text-center">
-							<td>${status.count }</td>
-							<td class="text-left" style="font-size:12px;">${rankTable.clubName }</td>
-							<td>${rankTable.point }</td>
-							<td>${rankTable.goals }</td>
-						</tr>
-					</c:forEach>
-					<%--반복 끝 --%>
-				</tbody>
-				
-			</table>
-				
-			
+	
+		<div class="form-control">
+			<input type="text" placeholder="뉴스제목" id="title"><br>
+			<textarea placeholder="뉴스본문" id="content"></textarea><br>
+			<input type="file" id="file"><br>
+			<input type="text" placeholder="리그명" id="league"><br>
+			<input type="text" placeholder="회사명" id="company"><br>
+			<input type="text" placeholder="기자명" id="reporter"><br>
+			<button type="button" id="upload">업로드</button>
 		
 		
-		
-		
+		</div>	
 	</div>
+	
+	<script>
+		$(document).ready(function(){
+			
+			$("#upload").on("click", function() {
+				
+				let title = $("#title").val().trim();
+				let content = $("#content").val().trim();
+				let league = $("#league").val().trim();
+				let company = $("#company").val().trim();
+				let reporter = $("#reporter").val().trim();
+				
+				let formData = new FormData();
+				formData.append("title",title);
+				formData.append("content",content);
+				formData.append("league",league);
+				formData.append("company",company);
+				formData.append("reporter",reporter);
+				formData.append("file",$("#file")[0].files[0] );
+				
+				
+				
+				$.ajax({
+					//tudse ,tudepcse
+					type:"post",
+					url:"/news/test",
+					data:formData,
+					enctype:"multipart/form-data",
+					processData:false,
+					contentType:false,
+					success:function(data){
+						if(data.result == "success"){
+							location.reload();
+						} else {
+							alert("실패");
+						}
+					},
+					error:function(){
+						alert("에러");
+					}
+				});
+
+				
+				
+
+				
+
+			});
+		});
+	
+	</script>
 </body>
 </html>

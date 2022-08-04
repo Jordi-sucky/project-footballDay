@@ -8,7 +8,7 @@
 			<a href="/notice/noticeMainView" class="nav-link"><span class="text-white">공지사항</span></a>
 		</li>
 		<li class="nav-item mt-2">
-			<a href="#" class="nav-link"><span class="text-white">지식백과</span></a>
+			<a href="/news/newsMainView" class="nav-link"><span class="text-white">뉴스</span></a>
 		</li>
 		<li class="nav-item mt-2">
 			<a href="#" class="nav-link"><span class="text-white">데이터센터</span></a>
@@ -20,7 +20,7 @@
 			<a href="#" class="nav-link text-white">자유게시판</a>
 		</li>
 		<li class="nav-item mt-2">
-			<a href="#" class="nav-link"><span class="text-white">고객센터</span></a>
+			<a href="/insertTest" class="nav-link"><span class="text-white">고객센터</span></a>
 		</li>
 
 	</ul>

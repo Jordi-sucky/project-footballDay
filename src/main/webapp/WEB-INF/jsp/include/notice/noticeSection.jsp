@@ -72,10 +72,7 @@
 				
 				<div class="text-center">
 					<a href="#" class="text-dark">1</a>&nbsp;
-					<a href="#" class="text-dark">2</a>&nbsp;
-					<a href="#" class="text-dark">3</a>&nbsp;
-					<a href="#" class="text-dark">4</a>&nbsp;
-					<a href="#" class="text-dark">5</a>
+
 					<%--꾸준히~ --%>
 				</div>
 			</div>
@@ -85,6 +82,10 @@
 		<div class="col-3">
 			<%--로그인 박스 --%>
 			<c:import url="/WEB-INF/jsp/include/loginBox.jsp" />
+			<%--리그 순위 박스 --%>
+			<c:import url="/WEB-INF/jsp/include/rankTable.jsp" />
+			
+			
 		</div>
 	</div>
 </section>
