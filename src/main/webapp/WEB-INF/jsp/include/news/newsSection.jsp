@@ -25,11 +25,11 @@
 	<%--뉴스 본문 --%>
 	<div class="d-flex w-100 sectionBox mt-3 container">
 	
-		<div id="recentNews" class="mb-3 mr-3">
+		<div id="recentNews" class=" mr-3">
 			
 			<%--반복 최신뉴스 div --%>
 			<c:forEach var="news" items="${newsInfo }" varStatus="status" end="4">
-				<a href="#">
+				<a href="/news/newsDetail?newsId=${news.id }">
 					<div class="d-flex mt-3">
 						<%--사진 div--%>
 						<div class="newsPicture">
@@ -60,47 +60,16 @@
 							</div>
 						</div>
 						
-					</div>			
-				</a>
+					</div>		
+				</a>			
 			</c:forEach>
-			
-		</div>
-		
-		<div id="bestNews" class="mt-3">
-			<div>
-				<h4>오늘의 HOT 뉴스소식</h4>
-			</div>
-		
-			<div class="mt-3">
-				<%--반복 베스트뉴스 div --%>
 
-				
-				<c:forEach var="news" items="${newsInfo }" varStatus="status"  end="9">
-					<c:set var="newsTitle" value="${news.title }"/>
-					<c:set var="newsTitleLength" value="${fn:length(newsTitle) }"/>
-					<c:choose>
-						<c:when test="${newsTitleLength <= 20 }">
-							<a href="#">
-								<div class="w-100 mb-1 text-dark">
-									<b>${status.count }</b>&nbsp<span>${news.title }</span>
-								</div>
-							</a>	
-						</c:when>
-						<c:otherwise>
-							<a href="#">
-								<div class="w-100 mb-1 text-dark">
-									<b>${status.count }</b>&nbsp<span>${fn:substring(newsTitle,0,18) }...</span>
-								</div>
-							</a>								
-						</c:otherwise>
-					</c:choose>
-				</c:forEach>
-				
-					
-				
-			</div>
+			<div class="mb-3"></div>
 		</div>
+		
+		<c:import url="/WEB-INF/jsp/include/news/bestNews.jsp" />
 	
 	
 	</div>
 </div>
+

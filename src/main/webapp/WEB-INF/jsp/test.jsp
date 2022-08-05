@@ -39,7 +39,7 @@
 			$("#upload").on("click", function() {
 				
 				let title = $("#title").val().trim();
-				let content = $("#content").val().trim();
+				let content = $("#content").val();
 				let league = $("#league").val().trim();
 				let company = $("#company").val().trim();
 				let reporter = $("#reporter").val().trim();

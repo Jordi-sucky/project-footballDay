@@ -26,4 +26,9 @@ public class newsVO {
 		
 		return newsdao.newsInfoDAO();
 	}
+	
+	public News newsIdDetailVO(int id) {
+		
+		return newsdao.newsIdDetailDAO(id);
+	}
 }

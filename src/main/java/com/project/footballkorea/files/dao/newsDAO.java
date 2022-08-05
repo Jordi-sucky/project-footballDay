@@ -20,4 +20,6 @@ public interface newsDAO {
 			);
 	
 	public List<News> newsInfoDAO();
+	
+	public News newsIdDetailDAO(int id);
 }

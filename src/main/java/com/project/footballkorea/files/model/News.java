@@ -1,5 +1,7 @@
 package com.project.footballkorea.files.model;
 
+import java.util.Date;
+
 public class News {
 	
 	private int id;
@@ -9,6 +11,8 @@ public class News {
 	private String league;
 	private String company;
 	private String reporter;
+	private Date updatedAt;
+	private Date createdAt;
 	public int getId() {
 		return id;
 	}
@@ -51,5 +55,18 @@ public class News {
 	public void setReporter(String reporter) {
 		this.reporter = reporter;
 	}
+	public Date getUpdatedAt() {
+		return updatedAt;
+	}
+	public void setUpdatedAt(Date updatedAt) {
+		this.updatedAt = updatedAt;
+	}
+	public Date getCreatedAt() {
+		return createdAt;
+	}
+	public void setCreatedAt(Date createdAt) {
+		this.createdAt = createdAt;
+	}
+
 	
 }

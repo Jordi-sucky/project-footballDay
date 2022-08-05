@@ -54,6 +54,14 @@
  	
  	
  	</select>
+ 	
+ 	<select id="newsIdDetailDAO" resultType="com.project.footballkorea.files.model.News">
+ 	
+ 		SELECT * FROM `news`
+ 		WHERE `id` = #{id}
+ 	
+ 	
+ 	</select>
  
  
  </mapper>

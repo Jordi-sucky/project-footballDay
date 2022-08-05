@@ -71,7 +71,7 @@
 .sectionBox {
 	border: #3c94d6 3px solid;
 	box-sizing: border-box;
-	height:800px;
+	height:auto;
 
 }
 
