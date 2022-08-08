@@ -19,6 +19,31 @@ public class commentRestController {
 	@Autowired
 	private commentVO commentvo;
 
+
+	
+	@PostMapping("/freeboard/commentUp")
+	public Map<String, String> ttest(
+			@RequestParam("postId") int postId
+			, @RequestParam("comment") String comment
+			, HttpServletRequest request
+			){
+		
+		HttpSession session = request.getSession();
+		String userNickname = (String) session.getAttribute("userNickname");
+		String userIconPath = (String) session.getAttribute("userIconPath");
+		
+		int count = commentvo.commentUpVO(postId, userNickname , comment, userIconPath);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			result.put("result", "success");
+		} else {
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
 	
 
 }

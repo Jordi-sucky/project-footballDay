@@ -4,12 +4,13 @@
  
  <mapper namespace="com.project.footballkorea.files.dao.commentDAO">
  	
- 	<insert id="commentUpDAO" parameterType="map">
+ 
  	
+ 	<insert id="commentUpDAO" parameterType="map">
  		INSERT INTO `comment`
  		(
- 		    `postId`
- 			, `userName`
+ 			`postId`
+ 			, `userNickname`
  			, `comment`
  			, `iconPath`
  			, `createdAt`
@@ -18,13 +19,30 @@
  		VALUE
  		(
  			#{postId}
- 			, #{userName}
+ 			, #{userNickname}
  			, #{comment}
  			, #{iconPath}
  			, now()
  			, now()
  		)
  	</insert>
+ 	
+ 	<select id="commentViewDAO" resultType="com.project.footballkorea.files.model.Comment">
+ 		
+ 		SELECT 
+ 			`id`
+ 			, `postId`
+ 			, `userNickname`
+ 			, `comment`
+ 			, `iconPath`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`comment`
+ 		WHERE 
+ 			`postId` = #{postId}
+ 	
+ 	</select>
  
  
  

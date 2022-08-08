@@ -53,7 +53,10 @@
 						<hr>
 						<%--본문 --%>
 						<div>
-							<span>${post.content }</span>
+							<% pageContext.setAttribute("newLine", "\n"); %>
+							<label>
+								${fn:replace(post.content, newLine,"<br>") }
+							</label>
 						</div>
 						<%--조횟수, 댓글 수 --%>
 						<div class="mt-3 d-flex justify-content-between" style="font-size:14px;">
@@ -65,16 +68,28 @@
 						<hr>
 						<div>
 							<b>댓글</b>
-							<div class="mt-3 d-flex">
-								<img class="userIcon" src="/images/temporary/졸라맨.png">
-								<div class="ml-3">
-									<b>서키서키</b><br>
-									<label>
-										흥민이형이 경기당 3골씩 넣고 16강 3승으로 <br> 올라갑니다 !!!
-									</label> <br>
-									<div style="font-size:14px;">2022.08.07 11:43</div>
+							<c:forEach var="comment" items="${comment }" varStatus="status">
+								<div class="mt-3 d-flex">
+									
+									<c:choose>
+										<c:when test="${comment.iconPath == null }">
+											<img class="userIcon" src="/images/temporary/who.png">
+										</c:when>
+										<c:otherwise>
+											<img class="userIcon" src="${comment.iconPath }">
+										</c:otherwise>
+									</c:choose>
+									<div class="ml-3">
+										<b>${comment.userNickname }</b><br>
+										<label>
+											${comment.comment }
+										</label> <br>
+										<div style="font-size:14px;">
+											<fmt:formatDate value="${comment.createdAt }" pattern="yyyy.MM.dd HH:mm"/>
+										</div>
+									</div>
 								</div>
-							</div>
+							</c:forEach>	
 							<%--댓글 입력창 --%>
 							<c:choose>
 								<c:when test="${not empty userId}">
@@ -129,13 +144,17 @@
 <script>
 	$(document).ready(function(){
 		
+		
+		
+		
 		$("#commentUpBtn").on("click",function(){
 			
-			let comment = $("#commentInput").val();
-		
+			let comment = $("#commentInput").val().trim();
+			let postId = ${post.id};
+
 			if(comment == ""){
 				
-				alert("댓글을 입력해 주세요.")
+				alert("댓글을 입력해 주세요.");
 				return;
 			}
 			
@@ -143,25 +162,21 @@
 				//tudse
 				type:"post",
 				url:"/freeboard/commentUp",
-				data:{"comment":comment},
+				data:{"comment":comment, "postId":postId},
 				success:function(data){
 					if(data.result == "success"){
-						
 						alert("댓글이 등록되었습니다.");
-						location.href = "/freeboard/freeboardMainView";
+						location.reload();
 					} else {
-						
-						alert("댓글 등록 실패.");
+						alert("실패");
 					}
-					
 				},
-				error:function{
-					
-					alert("댓글 에러");
+				error:function(){
+					alert("에러");
 				}
 			});
-		
 		});
+		
 	});
 
 </script>
