@@ -78,6 +78,7 @@ public class userRestController {
 			session.setAttribute("userLoginId", user.getLoginId());
 			session.setAttribute("userName", user.getName());
 			session.setAttribute("userNickname", user.getNickname());
+			session.setAttribute("userIconPath", user.getIconPath());
 			
 			
 		} else {

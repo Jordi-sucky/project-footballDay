@@ -2,12 +2,18 @@ package com.project.footballkorea.files;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
+import com.project.footballkorea.files.model.Freeboard;
 import com.project.footballkorea.files.model.Rank;
+import com.project.footballkorea.files.vo.postVO;
 import com.project.footballkorea.files.vo.rankVO;
 
 @Controller
@@ -16,12 +22,18 @@ public class freeboardController {
 	@Autowired
 	private rankVO rankvo;
 	
+	@Autowired
+	private postVO postvo;
+	
 	@GetMapping("/freeboard/freeboardMainView")
 	public String freeboardMainView(Model model) {
 		
 		List<Rank> rank = rankvo.rankListVO();
+		List<Freeboard> postList = postvo.selectPostListVO();
 		
+		model.addAttribute("postList", postList);
 		model.addAttribute("rank", rank);
+		
 		
 		return "/Views/freeboard/freeboardView";
 	}
@@ -33,7 +45,13 @@ public class freeboardController {
 	}
 	
 	@GetMapping("/freeboard/postDetail")
-	public String freeboardPostDetail() {
+	public String freeboardPostDetail(@RequestParam("id") int id, Model model) {
+		
+		
+		Freeboard post = postvo.selectPostDetailVO(id);
+		
+		
+		model.addAttribute("post", post);
 		
 		return "/Views/freeboard/postDetail";
 	}

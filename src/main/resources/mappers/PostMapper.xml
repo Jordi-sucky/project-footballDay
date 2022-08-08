@@ -9,7 +9,8 @@
  		INSERT INTO `freeboard`
  		(
  			`userId`
- 			, `userName`
+ 			, `userNickname`
+ 			, `iconPath`
  			, `title`
  			, `content`
  			, `createdAt`
@@ -18,7 +19,8 @@
  		VALUE
  		(
  			#{userId}
- 			, #{userName}
+ 			, #{userNickname}
+ 			, #{iconPath}
  			, #{title}
  			, #{content}
  			, now()
@@ -30,7 +32,31 @@
  	
  	</insert>
  
- 
+ 	<select id="selectPostListDAO" resultType="com.project.footballkorea.files.model.Freeboard">
+ 		
+ 		SELECT 
+ 			`id`
+ 			, `userId`
+ 			, `userNickname`
+ 			, `iconPath`
+ 			, `title`
+ 			, `content`
+ 			, `createdAt`
+ 			, `updatedAt`
+ 		FROM 
+ 			`freeboard`
+ 		ORDER BY `id` DESC
+ 	
+ 	
+ 	</select>
+ 	
+ 	<select id="selectPostDetailDAO" resultType="com.project.footballkorea.files.model.Freeboard">
+ 		
+ 		SELECT * FROM `freeboard` 
+ 		WHERE `id` = #{id}
+ 	
+ 	
+ 	</select>
  
  
  

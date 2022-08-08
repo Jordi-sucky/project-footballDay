@@ -9,6 +9,7 @@ public class User {
 	private String name;
 	private String nickname;
 	private String phoneNumber;
+	private String iconPath;
 	private Date createdAt;
 	private Date updatedAt;
 	public int getId() {
@@ -58,6 +59,12 @@ public class User {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public String getIconPath() {
+		return iconPath;
+	}
+	public void setIconPath(String iconPath) {
+		this.iconPath = iconPath;
 	}
 	
 	

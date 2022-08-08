@@ -50,6 +50,7 @@
  			, `name`
  			, `nickname`
  			, `phoneNumber`
+ 			, `iconPath`
  			, `createdAt`
  			, `updatedAt`
  		FROM

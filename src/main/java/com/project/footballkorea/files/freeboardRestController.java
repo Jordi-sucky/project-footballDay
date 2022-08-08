@@ -30,9 +30,10 @@ public class freeboardRestController {
 		HttpSession session = request.getSession();
 		
 		int userId = (int) session.getAttribute("userId");
-		String userName = (String) session.getAttribute("userName");
+		String userNickname = (String) session.getAttribute("userNickname");
+		String userIconPath = (String) session.getAttribute("userIconPath");
 		
-		int count = postvo.postUpVO(userId,userName,title,content);
+		int count = postvo.postUpVO(userId,userNickname,userIconPath,title,content);
 		
 		if(count == 1) {
 			result.put("result", "success");
