@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 
 import com.project.footballkorea.files.model.Rank;
 import com.project.footballkorea.files.vo.rankVO;
@@ -19,13 +20,16 @@ public class userController {
 	@Autowired
 	private rankVO rankvo;
 	
+	@ModelAttribute("rank")
+	public List<Rank> rank(){
+		
+		List<Rank> rank = rankvo.rankListVO();
+		return rank;
+	}
 
 	@GetMapping("/footballkorea")
 	public String main(Model model) {
-		
-		List<Rank> rank = rankvo.rankListVO();
-		
-		model.addAttribute("rank", rank);
+	
 		
 		return "/Views/mainView";
 	}

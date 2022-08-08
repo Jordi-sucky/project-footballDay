@@ -9,7 +9,7 @@
 				</a>
 				
 				<label class="ml-3">FootBall</label>
-				<label><h2 class="ml-2 mt-4"> korea</h2></label>
+				<label><h2 class="ml-2 mt-4">DAY</h2></label>
 				
 			</div>
 			<div >

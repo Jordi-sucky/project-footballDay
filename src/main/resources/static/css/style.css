@@ -150,3 +150,41 @@ table {
 	height:120px;
 }
 
+.freeboard{
+	
+	width:800px;
+}
+
+#rightSection{
+	
+	width:310px;
+}
+
+.freeboardFont {
+	font-size:14px;
+}
+
+.inputBorder {
+	border: 3px solid  #d9e5fc;
+}
+
+.userIcon {
+	width:40px;
+	height:40px;
+}
+
+.commentBox {
+	background-color: #d9e5fc;
+	border:black 2px solid;
+	box-sizing: border-box;
+	border-radius : 10px;
+}
+
+.commentInput {
+	background-color: #d9e5fc;
+	border: none;
+}
+
+.commentInput-input:focus{
+	outline:none;
+}
