@@ -3,37 +3,7 @@
  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
  
  <mapper namespace="com.project.footballkorea.files.dao.newsDAO">
- 	
- 	<insert id="testDAO" parameterType="map">
- 	
- 		INSERT INTO `news`
- 		(
- 			`title`
- 			, `content`
- 			, `imagePath`
- 			, `league`
- 			, `company`
- 			, `reporter`
- 			, `createdAt`
- 			, `updatedAt`
-
- 		)
- 		VALUE
- 		(
- 			#{title}
- 			, #{content}
- 			, #{imagePath}
- 			, #{league}
- 			, #{company}
- 			, #{reporter}
- 			, now()
- 			, now()
-
- 		)
- 	
- 	
- 	
- 	</insert>
+ 
  	
  	<select id="newsInfoDAO" resultType="com.project.footballkorea.files.model.News">
  	

@@ -10,15 +10,7 @@ import com.project.footballkorea.files.model.News;
 @Repository
 public interface newsDAO {
 	
-	public int testDAO(
-			@Param("title") String title,
-			@Param("content") String content,
-			@Param("imagePath") String imagePath,
-			@Param("league") String league,
-			@Param("company") String company,
-			@Param("reporter") String reporter
-			);
-	
+
 	public List<News> newsInfoDAO();
 	
 	public News newsIdDetailDAO(int id);

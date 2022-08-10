@@ -42,9 +42,5 @@ public class newsController {
 		return "/Views/news/newsDetail";
 	}
 	
-	@GetMapping("/insertTest")
-	public String insertTest() {
-		
-		return "/test";
-	}
+
 }

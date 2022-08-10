@@ -1,8 +1,12 @@
 @charset "UTF-8";
 
 #logo {
-	font-size:50px;
-	font-family: cursive;
+	
+	width:600px;
+}
+
+#logoImg{
+	width:100px;
 }
 
 #logoBall {

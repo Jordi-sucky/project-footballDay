@@ -15,12 +15,7 @@ public class newsVO {
 	
 	@Autowired
 	private newsDAO newsdao;
-	
-	public int testVO(String title, String content, MultipartFile file, String league, String company, String reporter ) {
-		
-		String imagePath = FileManagerService.saveFile(file);
-		return newsdao.testDAO(title, content, imagePath, league, company, reporter);
-	}
+
 	
 	public List<News> newsInfoVO(){
 		

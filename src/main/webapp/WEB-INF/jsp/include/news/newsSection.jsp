@@ -12,11 +12,12 @@
 		
 		<%--메뉴 카테고리 --%>
 		<div class="d-flex align-items-center">
+			<img style="width:100px;" src="/images/temporary/footballday2-1.png">
 			<h2>오늘의 축구뉴스</h2>
 		</div>
 		
 		<%--회원정보 박스 --%>
-		<div>
+		<div class="mr-5">
 			<c:import url="/WEB-INF/jsp/include/loginBox.jsp" />
 		</div>
 	

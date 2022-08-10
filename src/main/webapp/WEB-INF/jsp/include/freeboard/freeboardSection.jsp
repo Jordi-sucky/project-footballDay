@@ -14,6 +14,7 @@
 		<div class="freeboard">
 			
 			<div class="d-flex align-items-center" style="height:86px;">
+				<img style="width:100px;" src="/images/temporary/footballday2-1.png">
 				<h2>풋볼데이 자유게시판</h2>
 			</div>
 			

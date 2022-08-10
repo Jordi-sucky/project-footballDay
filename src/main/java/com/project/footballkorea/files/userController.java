@@ -27,7 +27,7 @@ public class userController {
 		return rank;
 	}
 
-	@GetMapping("/footballkorea")
+	@GetMapping("/footballday")
 	public String main(Model model) {
 	
 		

@@ -20,7 +20,7 @@
 			<a href="/freeboard/freeboardMainView" class="nav-link text-white">자유게시판</a>
 		</li>
 		<li class="nav-item mt-2">
-			<a href="/insertTest" class="nav-link"><span class="text-white">고객센터</span></a>
+			<a href="#" class="nav-link"><span class="text-white">고객센터</span></a>
 		</li>
 
 	</ul>
