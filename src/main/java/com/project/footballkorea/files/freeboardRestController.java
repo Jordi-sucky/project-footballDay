@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.footballkorea.files.vo.countVO;
 import com.project.footballkorea.files.vo.postVO;
 
 @RestController
@@ -18,6 +19,9 @@ public class freeboardRestController {
 	
 	@Autowired
 	private postVO postvo;
+	
+	@Autowired
+	private countVO countvo;
 	
 	@PostMapping("/freeboard/postUp")
 	public Map<String, String> postUp(

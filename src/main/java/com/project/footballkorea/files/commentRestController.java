@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.project.footballkorea.files.vo.commentVO;
+import com.project.footballkorea.files.vo.postVO;
 
 @RestController
 public class commentRestController {
@@ -19,10 +20,11 @@ public class commentRestController {
 	@Autowired
 	private commentVO commentvo;
 
-
+	@Autowired
+	private postVO postvo;
 	
 	@PostMapping("/freeboard/commentUp")
-	public Map<String, String> ttest(
+	public Map<String, String> commentUp(
 			@RequestParam("postId") int postId
 			, @RequestParam("comment") String comment
 			, HttpServletRequest request
@@ -33,6 +35,7 @@ public class commentRestController {
 		String userIconPath = (String) session.getAttribute("userIconPath");
 		
 		int count = commentvo.commentUpVO(postId, userNickname , comment, userIconPath);
+		postvo.countCommentsVO(postId);
 		
 		Map<String, String> result = new HashMap<>();
 		

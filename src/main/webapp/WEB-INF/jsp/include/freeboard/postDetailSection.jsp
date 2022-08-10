@@ -46,7 +46,7 @@
 							</div>
 							<%--댓글 수, 조회 수 --%>
 							<div class="d-flex align-items-center">
-								<span>댓글 17 &nbsp; 조회수 800</span>	
+								<span>댓글 ${post.comments} &nbsp; 조회수  ${post.visit }</span>	
 							</div>
 						
 						</div>
@@ -60,7 +60,7 @@
 						</div>
 						<%--조횟수, 댓글 수 --%>
 						<div class="mt-3 d-flex justify-content-between" style="font-size:14px;">
-							<div><span>조회수 800 &nbsp; 댓글수 17</span></div>
+							<div><span>조회수 ${post.visit } &nbsp; 댓글수 ${post.comments }</span></div>
 							<div>
 								<i class="bi bi-arrow-90deg-right"></i><b>공유</b> | <b>신고</b>
 							</div>

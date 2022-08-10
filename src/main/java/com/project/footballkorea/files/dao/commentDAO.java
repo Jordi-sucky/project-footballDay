@@ -20,4 +20,6 @@ public interface commentDAO {
 			);
 	
 	public List<Comment> commentViewDAO(@Param("postId") int postId);
+	
+
 }

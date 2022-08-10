@@ -4,7 +4,10 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
+
 <section class="container">
+
+
 
 	<div class="d-flex  mt-3 mb-3">
 		<%--include 공지 --%>
@@ -35,7 +38,7 @@
 								<th>No.</th>
 								<th>제목</th>
 								<th>글쓴이</th>
-								<th>추천</th>
+								<th>조회수</th>
 								<th>날짜</th>
 							
 							</tr>
@@ -45,7 +48,10 @@
 							<c:forEach var="postList" items="${postList }" varStatus="status">
 								<tr class="text-center freeboardFont">
 									<td>${postList.id }</td>
-									<td class="text-left"><a href="/freeboard/postDetail?id=${postList.id }" class="text-dark">${postList.title }</a></td>
+									<td class="text-left">
+										<a href="/freeboard/postDetail?id=${postList.id }" class="text-dark">${postList.title }</a>
+										<label style="opacity:0.5;">[${postList.comments }]</label>
+									</td>
 									<%--글자수 조절 --%>
 									<c:choose>
 										<c:when test="${fn:length(postList.userNickname) >= 7 }">
@@ -59,7 +65,7 @@
 									    	</td>
 									    </c:otherwise>
 									</c:choose>	
-									<td>150</td>
+									<td>${postList.visit }</td>
 									
 									<td>
 										<fmt:formatDate  value="${postList.createdAt }" pattern="HH:mm"/>

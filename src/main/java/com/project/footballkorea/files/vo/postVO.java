@@ -28,4 +28,14 @@ public class postVO {
 		
 		return postdao.selectPostDetailDAO(id);
 	}
+	
+	public int countVisitVO(int id) {
+		
+		return postdao.countVisitDAO(id);
+	}
+	
+	public int countCommentsVO(int id) {
+		
+		return postdao.countCommentsDAO(id);
+	}
 }

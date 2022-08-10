@@ -54,8 +54,9 @@ public class freeboardController {
 			
 			) {
 		
-		
+		postvo.countVisitVO(id);
 		Freeboard post = postvo.selectPostDetailVO(id);
+		
 		
 		
 		List<Comment> comment = commentvo.commentViewVO(id);

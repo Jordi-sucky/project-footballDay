@@ -10,6 +10,8 @@ public class Freeboard {
 	private String iconPath;
 	private String title;
 	private String content;
+	private int visit;
+	private int comments;
 	private Date createdAt;
 	private Date updatedAt;
 	
@@ -61,6 +63,18 @@ public class Freeboard {
 	}
 	public void setIconPath(String iconPath) {
 		this.iconPath = iconPath;
+	}
+	public int getVisit() {
+		return visit;
+	}
+	public void setVisit(int visit) {
+		this.visit = visit;
+	}
+	public int getComments() {
+		return comments;
+	}
+	public void setComments(int comments) {
+		this.comments = comments;
 	}
 
 	

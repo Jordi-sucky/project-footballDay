@@ -21,4 +21,8 @@ public interface postDAO {
 	public List<Freeboard> selectPostListDAO();
 	
 	public Freeboard selectPostDetailDAO(@Param("id") int id);
+	
+	public int countVisitDAO(@Param("id") int id);
+	
+	public int countCommentsDAO(@Param("id") int id);
 }

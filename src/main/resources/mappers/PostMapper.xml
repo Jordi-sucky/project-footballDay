@@ -13,6 +13,8 @@
  			, `iconPath`
  			, `title`
  			, `content`
+ 			, `visit`
+ 			, `comments`
  			, `createdAt`
  			, `updatedAt`
  		)
@@ -23,6 +25,8 @@
  			, #{iconPath}
  			, #{title}
  			, #{content}
+ 			, 0
+ 			, 0
  			, now()
  			, now()
  		
@@ -41,6 +45,8 @@
  			, `iconPath`
  			, `title`
  			, `content`
+ 			, `visit`
+ 			, `comments`
  			, `createdAt`
  			, `updatedAt`
  		FROM 
@@ -54,11 +60,33 @@
  		
  		SELECT * FROM `freeboard` 
  		WHERE `id` = #{id}
- 	
- 	
+ 
  	</select>
- 
- 
+
+ 	<update id="countVisitDAO" parameterType="map">
+ 		
+ 		UPDATE 
+ 			`freeboard`
+ 		SET
+ 			`visit` = `visit` + 1
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	
+ 	</update>
+
+ 	<update id="countCommentsDAO" parameterType="map">
+ 		
+ 		UPDATE
+ 			`freeboard`
+ 		SET
+ 			`comments` = `comments` + 1
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	
+ 	</update>
+ 	
  
  
  
