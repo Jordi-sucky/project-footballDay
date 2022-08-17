@@ -125,11 +125,11 @@ table {
 
 .previewBox {
 	height:300px;
-	border: 1px solid black;
+	border: 1px solid #d9e5fc;
 }
 
 .newsBox {
-	height:180px;
+	height:100px;
 }
 #newsSection {
 	height:700px;
@@ -191,4 +191,77 @@ table {
 
 .commentInput-input:focus{
 	outline:none;
+}
+
+.postBtnDesign {
+	border: none;
+	border-radius : 10px;
+}
+
+.postBtnDesign-input:focus{
+	
+	outline:none;
+}
+
+.sectionBox-match {
+	border: #0b439e 3px solid;
+	box-sizing: border-box;
+	height:auto;
+
+}
+
+#leagueDate {
+	width:537px;
+
+}
+
+#league-logo {
+	width:50px;
+	height:40px;
+}
+
+#date-box {
+	
+	height:100px;
+}
+
+.dateDetail-img {
+	width:30px;
+	height:30px;
+}
+
+.dateDetail-hr {
+	border-right:#d9e5fc 1px solid;
+}
+
+.premierLeague {
+	background-color:#381078;
+}
+
+.bundesliga {
+	
+	background-color:#cc0606;
+}
+
+.serie {
+	background-color:#2b00b8;
+}
+
+.laliga {
+	background-color:#c71278;
+}
+
+.matchDate-font{
+	font-size:26px;
+}
+
+.priviewNews-img {
+	width:130px;
+	height:90px;
+}
+
+.news-company-report{
+	
+	font-size:12px;
+	opacity:0.5;
 }

@@ -4,13 +4,15 @@
 
 <section class="container">
 	
-	<div class="d-flex col mt-3 mb-3">
+	<div class="d-flex mt-3 mb-3">
 		<%--좌 섹션--%>
 		<c:import url="/WEB-INF/jsp/include/preview.jsp" />
 		<%--우 섹션 --%>
-		<div class="col-3">
-			<%--로그인 박스 --%>
-			<c:import url="/WEB-INF/jsp/include/loginBox.jsp" />
+		<div style="width:310px;">
+			<%--로그인 박스 --%>	
+			<div class="d-flex justify-content-center">
+				<c:import url="/WEB-INF/jsp/include/loginBox.jsp" />
+			</div>
 			<%--리그 순위 박스 --%>
 			<c:import url="/WEB-INF/jsp/include/rankTable.jsp" />
 			

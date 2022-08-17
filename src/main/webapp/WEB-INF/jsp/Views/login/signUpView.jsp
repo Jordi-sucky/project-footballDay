@@ -120,7 +120,7 @@
 					success:function(data){
 						
 						if(data.result == "success"){
-							location.href = "/footballkorea";
+							location.href = "/footballday";
 							alert("회원가입이 완료 되었습니다.");
 						} else {
 							alert("회원가입 실패");

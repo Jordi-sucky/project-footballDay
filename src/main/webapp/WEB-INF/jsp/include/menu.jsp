@@ -14,7 +14,7 @@
 			<a href="#" class="nav-link"><span class="text-white">데이터센터</span></a>
 		</li>
 		<li class="nav-item mt-2">
-			<a href="#" class="nav-link"><span class="text-white">경기일정</span></a>
+			<a href="/match/matchView" class="nav-link"><span class="text-white">경기일정</span></a>
 		</li>
 		<li class="nav-item mt-2">
 			<a href="/freeboard/freeboardMainView" class="nav-link text-white">자유게시판</a>

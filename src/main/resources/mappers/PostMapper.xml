@@ -87,7 +87,16 @@
  	
  	</update>
  	
- 
+ 	<update id="countCommentsDelDAO" parameterType="map">
+ 		
+ 		UPDATE
+ 			`freeboard`
+ 		SET
+ 			`comments` = `comments` - 1
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	</update>
  
  
  </mapper>

@@ -9,7 +9,8 @@
  	<insert id="commentUpDAO" parameterType="map">
  		INSERT INTO `comment`
  		(
- 			`postId`
+ 			`userId`
+ 			, `postId`
  			, `userNickname`
  			, `comment`
  			, `iconPath`
@@ -18,7 +19,8 @@
  		)
  		VALUE
  		(
- 			#{postId}
+ 			#{userId}
+ 			, #{postId}
  			, #{userNickname}
  			, #{comment}
  			, #{iconPath}
@@ -31,6 +33,7 @@
  		
  		SELECT 
  			`id`
+ 			, `userId`
  			, `postId`
  			, `userNickname`
  			, `comment`
@@ -44,8 +47,28 @@
  	
  	</select>
  
+ 	<update id="commentFixDAO" parameterType="map">
+ 	
+ 		UPDATE
+ 			`comment`
+ 		SET
+ 			`comment` = #{comment}
+ 		WHERE
+ 			`id` = #{id}
+ 	
+ 	
+ 	
+ 	</update>
  
- 
+ 	<delete id="commentDelDAO" parameterType="map">
+ 	
+ 		DELETE FROM
+ 			`comment`
+ 		WHERE
+ 			`id` = #{id}
+ 			
+ 	
+ 	</delete>
  
  
  

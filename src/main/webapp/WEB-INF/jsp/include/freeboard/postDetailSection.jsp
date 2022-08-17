@@ -10,13 +10,17 @@
 		<div class="freeboard">
 			
 			<div class="d-flex align-items-center" style="height:86px;">
+				<a href="/freeboard/freeboardMainView">
+					<img src="/images/temporary/footballday2-1.png" style="width:100px;">
+				</a>	
 				<h2>풋볼데이 자유게시판</h2>
 			</div>
 			
 			<div class="sectionBox container mt-3 pb-3" >
 				<%--자유게시판 상단 사진 --%>
 				<div class="mt-3 d-flex">
-					<img src="/images/temporary/worldcup.jpg" class="w-100">
+					<img src="/images/temporary/colaju.webp" class="w-100" style="height:300px;">
+					
 				</div>
 				<%--post 내용 --%>
 				<div class="mt-3">
@@ -24,6 +28,7 @@
 					<div class="container">
 						<span style="color:#110aa3;"><b>자유 게시판</b></span><br>
 						<div class="mt-3"><h3>${post.title }</h3></div>
+		
 						<div class="d-flex mt-3 justify-content-between">
 							<%--아이콘, 이미지 유저네임, 유저닉네임, 날짜 시간--%>
 							<div class="d-flex">
@@ -41,6 +46,13 @@
 									<span>${post.userNickname }</span><br>
 									<span>
 										<fmt:formatDate value="${post.createdAt }" pattern="yyyy.MM.dd HH:mm"/>
+										<%--본인이 맞으면 보이기 아니면 숨기기--%>
+										<c:choose>
+											<c:when test="${post.userId == userId }">
+												<button type="button" class="ml-2 postBtnDesign postBtnDesign-input" style="background-color:#78b5fa;">수정</button>
+												<button type="button" class="ml-2 postBtnDesign postBtnDesign-input" style="background-color:#ff582e;">삭제</button>
+											</c:when>
+										</c:choose>
 									</span>
 								</div>
 							</div>
@@ -66,7 +78,7 @@
 							</div>
 						</div>
 						<hr>
-						<div>
+						<div id="cmtBox">
 							<b>댓글</b>
 							<c:forEach var="comment" items="${comment }" varStatus="status">
 								<div class="mt-3 d-flex">
@@ -86,10 +98,36 @@
 										</label> <br>
 										<div style="font-size:14px;">
 											<fmt:formatDate value="${comment.createdAt }" pattern="yyyy.MM.dd HH:mm"/>
+											
+											<c:choose>
+												<c:when test="${comment.userId == userId }">
+													<button type="button" class="ml-2 postBtnDesign postBtnDesign-input commentFix" data-comment-id="${comment.id }" >수정</button>				
+													<button type="button" class="ml-2 postBtnDesign postBtnDesign-input commentDel" data-comment-id="${comment.id }" >삭제</button>
+												</c:when>
+											</c:choose>						
 										</div>
 									</div>
+									
 								</div>
-							</c:forEach>	
+								<div class="mt-3 commentBox container pt-2 pb-2" style="display:none;" id="commentFixBox${comment.id }">
+									<%--코멘트창 내용들 --%>
+									<div>
+										<input class="w-100 commentInput commentInput-input" type="text" maxlength = 50 placeholder="내용을 입력해 주세요." id="commentFixInput${comment.id }">
+									</div>
+									<%--아이콘 및 등록버튼 --%>
+									<div class="d-flex mt-2 justify-content-between">
+										<div>
+											<i class="bi bi-camera" ></i>
+											<i class="bi bi-emoji-smile ml-2"></i>
+										</div>
+										<div>
+											<button type="button" class="commentInput commentInput-input commentFixBtn" data-comment-id="${comment.id }">등록</button>
+										</div>
+									</div>
+								</div>															
+							</c:forEach>
+
+							
 							<%--댓글 입력창 --%>
 							<c:choose>
 								<c:when test="${not empty userId}">
@@ -176,6 +214,90 @@
 				}
 			});
 		});
+		
+		$(".commentFix").on("click",function(){
+			
+			let commentFix = $(this).data("comment-id");
+			
+			let test = "#commentFixBox"+commentFix;
+
+ 			if($(test).is(":visible")){
+				$(test).hide();
+			} else {
+				$(test).show();
+			} 		
+
+		});
+
+			
+		$(".commentFixBtn").on("click",function(){
+			
+			//수정 등록버튼
+			let commentFixBtn = $(this).data("comment-id");
+			let commentId = commentFixBtn;
+			
+			//수정 텍스트인풋 변수
+			let commentFixInputId = "#commentFixInput"+commentFixBtn;
+			
+			//수정 텍스트
+			let commentFixInput = $(commentFixInputId).val();
+			let comment = commentFixInput;
+			
+			
+			
+			
+			
+			$.ajax({
+				//tudse
+				type:"post",
+				url:"/freeboard/commentFix",
+				data:{"comment":comment, "id":commentId},
+				success:function(data){
+					
+					if(data.result == "success"){
+						
+						alert("댓글이 수정되었습니다.");
+						location.reload();
+					} else {
+						
+						alert("글 수정 실패");
+					}
+				},
+				error:function(){
+					
+					alert("글 수정 에러");
+				}
+
+				
+			});
+			
+			
+		});
+		
+		$(".commentDel").on("click",function(){
+			//삭제할 commentId
+			let commentDel = $(this).data("comment-id");
+			let postId = ${post.id};
+
+			$.ajax({
+				//tudse
+				type:"post",
+				url:"/freeboard/commentDel",
+				data:{"id":commentDel, "postId":postId},
+				success:function(data){
+					
+					alert("삭제 성공");
+					location.reload();
+				},
+				error:function(){
+					
+					alert("삭제 실패");
+				}
+			
+			});
+		});
+		
+
 		
 	});
 

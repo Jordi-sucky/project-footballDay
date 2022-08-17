@@ -11,9 +11,10 @@
 	<div class="d-flex justify-content-between mt-3">
 		
 		<%--메뉴 카테고리 --%>
-		<div class="d-flex align-items-center">
+		<div class="d-flex align-items-center" style="height:86px;">
+			<img style="width:100px;" src="/images/temporary/footballday2-1.png">
 			<h2>자유게시판 글쓰기</h2>
-		</div>
+		</div>	
 		
 		<%--회원정보 박스 --%>
 		<div>

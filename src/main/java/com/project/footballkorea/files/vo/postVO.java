@@ -38,4 +38,9 @@ public class postVO {
 		
 		return postdao.countCommentsDAO(id);
 	}
+	
+	public int countCommentsDelVO(int id) {
+		
+		return postdao.countCommentsDelDAO(id);
+	}
 }

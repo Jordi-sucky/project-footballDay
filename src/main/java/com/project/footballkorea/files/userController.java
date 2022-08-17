@@ -11,7 +11,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 
+import com.project.footballkorea.files.model.News;
 import com.project.footballkorea.files.model.Rank;
+import com.project.footballkorea.files.vo.newsVO;
 import com.project.footballkorea.files.vo.rankVO;
 
 @Controller
@@ -19,6 +21,9 @@ public class userController {
 	
 	@Autowired
 	private rankVO rankvo;
+	
+	@Autowired
+	private newsVO newsvo;
 	
 	@ModelAttribute("rank")
 	public List<Rank> rank(){
@@ -30,6 +35,9 @@ public class userController {
 	@GetMapping("/footballday")
 	public String main(Model model) {
 	
+		List<News> news = newsvo.newsInfoVO();
+		
+		model.addAttribute("newsInfo", news);
 		
 		return "/Views/mainView";
 	}
@@ -55,7 +63,8 @@ public class userController {
 		session.removeAttribute("userLoginId");
 		session.removeAttribute("userName");
 		session.removeAttribute("userNickname");
+		session.removeAttribute("userIconPath");
 		
-		return "redirect:/footballkorea";
+		return "redirect:/footballday";
 	}
 }

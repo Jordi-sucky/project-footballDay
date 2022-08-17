@@ -33,8 +33,9 @@ public class commentRestController {
 		HttpSession session = request.getSession();
 		String userNickname = (String) session.getAttribute("userNickname");
 		String userIconPath = (String) session.getAttribute("userIconPath");
+		int userId = (int) session.getAttribute("userId");
 		
-		int count = commentvo.commentUpVO(postId, userNickname , comment, userIconPath);
+		int count = commentvo.commentUpVO(userId, postId, userNickname , comment, userIconPath);
 		postvo.countCommentsVO(postId);
 		
 		Map<String, String> result = new HashMap<>();
@@ -47,6 +48,52 @@ public class commentRestController {
 		
 		return result;
 	}
+	
+	@PostMapping("/freeboard/commentFix")
+	public Map<String, String> commentFix(
+			@RequestParam("comment") String comment
+			, @RequestParam("id") int id
+			){
+		
+		int count = commentvo.commentFixVO(comment, id);
+		
+		Map<String, String> result = new HashMap<>();
+		
+		if(count == 1) {
+			
+			result.put("result", "success");
+		} else {
+			
+			result.put("result", "fail");
+		}
+	
+		return result;
+	}
+	
+	@PostMapping("/freeboard/commentDel")
+	public Map<String, String> commentDel(
+			@RequestParam("id") int id
+			, @RequestParam("postId") int postId
+			){
+		
+		Map<String, String> result = new HashMap<>();
+		
+		
+		
+		int count = commentvo.commentDelVO(id);
+		postvo.countCommentsDelVO(postId);
+		
+		if(count == 1) {
+			
+			result.put("result", "success");
+		} else {
+			
+			result.put("result", "fail");
+		}
+		
+		return result;
+	}
+	
 	
 
 }

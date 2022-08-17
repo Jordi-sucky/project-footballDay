@@ -5,6 +5,7 @@ import java.util.Date;
 public class Comment {
 	
 	private int id;
+	private int userId;
 	private int postId;
 	private String userNickname;
 	private String comment;
@@ -53,6 +54,12 @@ public class Comment {
 	}
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
+	}
+	public int getUserId() {
+		return userId;
+	}
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	
 	

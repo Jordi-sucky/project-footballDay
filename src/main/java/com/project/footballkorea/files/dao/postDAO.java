@@ -25,4 +25,6 @@ public interface postDAO {
 	public int countVisitDAO(@Param("id") int id);
 	
 	public int countCommentsDAO(@Param("id") int id);
+	
+	public int countCommentsDelDAO(@Param("id") int postId);
 }

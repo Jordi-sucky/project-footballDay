@@ -69,7 +69,7 @@
 					success:function(data){
 						if(data.result == "success"){
 							
-							location.href = "/footballkorea";
+							location.href = "/footballday";
 						} else {
 							alert("로그인에 실패하였습니다. \n다시 시도해 주십시오.");
 						}
